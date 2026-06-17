@@ -4,6 +4,10 @@ from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from src.controllers import account, auth, transaction
+from src.database import database
+from src.exceptions import AccountNotFoundError, BusinessError
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
         await database.connect()
@@ -33,8 +37,8 @@ app = FastAPI(
     version="1.0",
     summary="Microservice to maintain withdral and deposit operations from current account",
     description="Transactions API is the microservice for recording current account transactions.",
-    openapi_tags="tags_metadata",
-    redoc_url="None",
+    openapi_tags=tags_metadata,
+    redoc_url=None,
     lifespan=lifespan,
 ) 
 
