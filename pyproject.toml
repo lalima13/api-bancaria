@@ -1,0 +1,26 @@
+[project]
+name = "api-bancaria-dio"
+version = "0.1.0"
+description = "Api teste usando FastAPI"
+authors = [
+    {name = "Lucas Lima", email = "lucaslimatech98@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.137.1,<0.138.0",
+    "uvicorn[standard]",
+    "databases[aiosqlite,asyncpg]",
+    "pyjwt",
+    "psycopg2-binary",
+    "pydantic-settings",
+    "alembic"
+]
+
+[tool.ruff]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
