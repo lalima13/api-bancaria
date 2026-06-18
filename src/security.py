@@ -7,7 +7,7 @@ from fastapi import Depends, HTTPException, Request, status
 from fastapi.security import HTTPBearer
 from pydantic import BaseModel
 
-SECRET = "my-secret"
+SECRET = "my-secret-is-test-for-a-new-api-todo-esse-teste-serve-como-aprendizado-dio"
 ALGORITHM = "HS256"
 
 

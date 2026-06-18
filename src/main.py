@@ -5,11 +5,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from src.controllers import account, auth, transaction
-from src.database import database
+from src.database import database, metadata
 from src.exceptions import AccountNotFoundError, BusinessError
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+        import sqlalchemy
+        engine = sqlalchemy.create_engine(str(database.url))
+        metadata.create_all(engine)
         await database.connect()
         yield
         await database.disconnect()
@@ -45,7 +48,7 @@ app = FastAPI(
 app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
-        allow_credentials=["*"],
+        allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
 )
