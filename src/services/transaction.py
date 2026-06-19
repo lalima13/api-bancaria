@@ -19,7 +19,7 @@ class TransactionService:
         if not account:
             raise AccountNotFoundError
 
-        if transaction.type == TransactionType.WITHDRAWAL:
+        if transaction.type == TransactionType.WITHDRAWAL.value:
             balance = float(account.balance) - transaction.amount
             if balance < 0:
                 raise BusinessError("Operation not carried out due to lack of balance")

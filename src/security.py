@@ -29,7 +29,7 @@ def sign_jwt(user_id: int) -> JWTToken:
     now = time.time()
     payload = {
         "iss": "desafio-bank.com.br",
-        "sub": user_id,
+        "sub": str(user_id),
         "aud": "desafio-bank",
         "exp": now + (60 * 30),  # 30 minutes
         "iat": now,
