@@ -12,7 +12,6 @@ API REST construída com **FastAPI** e **PostgreSQL** para gerenciar usuários, 
 - **SQLAlchemy** — ORM para mapeamento objeto-relacional
 - **JWT** — autenticação via token
 - **Uvicorn** — servidor ASGI
->>>>>>> fa9139aa6fc6d1151b4fcf1b2f163c08b89cc8c0
 
 ---
 
